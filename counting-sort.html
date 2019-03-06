@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counting sort</title>
+    <script>
+        /**
+         * read data from textarea, data validation
+         */
+        function readData() {
+            let inputArray = document.getElementById('inputArray').value.replace(new RegExp('\n', 'g'), '').split(',').map((item) => (parseInt(item)))
+            let isValid = true;
+            for (var i=0; i<inputArray.length;i++) {
+                if (isNaN(inputArray[i])){
+                    document.getElementById('sortedArray').value='Array contains non number element';
+                    isValid = false;
+                }
+            };
+            if (isValid) {
+            	return inputArray 
+            		} else {
+            			return undefined};
+        }
+
+        /* clear results when sorting an array */
+        
+        function clearPreviousResults() {
+            document.getElementById('sortedArray').value='';
+            document.getElementById('numberOfElements').innerText = '';
+        }
+        
+        /* clear results when pressing Clear button */
+
+        function clearAllResults() {
+            document.getElementById('inputArray').value='';
+            document.getElementById('sortedArray').value='';
+            document.getElementById('numberOfElements').innerText = '';
+        }
+
+        /* Sorting process */
+
+        function processSorting() {
+            clearPreviousResults();
+            var inputArray = readData();
+            if (inputArray) {
+                var sortedArray = CountingSort(inputArray);
+                document.getElementById('sortedArray').value = sortedArray.join(', ');
+                document.getElementById('numberOfElements').innerHTML = inputArray.length;
+            }
+        }
+        /**
+         * core of the algo, that process sorting using counting sort algo:
+         * https://en.wikipedia.org/wiki/Counting_sort
+         */
+         function CountingSort(A)  {
+            var Count = [], // Count array
+                resultArr = [];  
+            for (var i = 0; i < A.length; i++) Count[ i ] = 0; // Inserting zeros to Count array
+            for (i = 0; i < A.length - 1; i++) {
+                for (var j = i+1; j < A.length; j++) {
+                    if (A[i] < A[j]) Count[j]++;  // Compare A[i] with A[j] elements
+                        else Count[i]++;          // Adding indexes to Count array
+                    }
+                }
+            for (i = 0; i < A.length; i++) resultArr[Count[i]] = A[i];
+                return resultArr;
+            }
+    </script>
+    <style>
+    	body {
+    		text-align: center;
+    		background: linear-gradient(45deg, #bfd2ef, #e2bce5);
+    	}
+    	h1 {
+    		text-decoration: underline;
+    	}
+    	h1:hover {
+    		color: magenta;
+    		transform: scale(2);
+    	}
+        textarea {
+            display: block;
+            margin: auto;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+        }
+        #btn {
+            display: flex;
+            justify-content: center;          
+        }
+        button {
+        	border-radius: 30px;
+        	width: 200px;
+        	height: 50px;
+        	font-size: 20px;
+        	outline: none;
+        }
+      	button:hover {
+      		color: blue;
+      	}
+        footer {
+        	text-align: left;
+        	margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Counting Sort algo</h1>
+    <h2>Input array:</h2>
+    <textarea rows="10" cols="100" id="inputArray" placeholder="Input Unsorted Array"></textarea>
+    <br/>
+    <div id="btn">
+    	<button onclick="processSorting()" width="100px">Sort</button>
+    	<button onclick="clearAllResults()">Clear</button>
+    </div>
+</div>
+<div>
+    <h2>Output:</h2>
+    <textarea rows="10" cols="100" id="sortedArray" placeholder="Sorted Array"></textarea>
+    <footer>
+    	<p>Number of elements (n): <span style="color: blue" id="numberOfElements"/></p>
+    	<p>Complexity: O(n+k)</p>
+    </footer>
+</div>
+</body>
+</html>
