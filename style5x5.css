@@ -1,0 +1,113 @@
+html,
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Muli', sans-serif;
+  user-select: none;
+}
+
+body {
+  display: grid;
+  grid-template: auto 512px auto / auto 400px auto;
+  color: #0c3f35;
+}
+
+#root {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  display: grid;
+  grid-template-rows: repeat(3, 3.3fr) 1.1fr;
+  border: 1px solid;
+}
+
+header {
+  font-size: 36px;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+#base {
+  display: grid;
+  grid-template: auto 258px auto / auto 258px auto;
+}
+
+footer {
+  border-bottom: 1px solid;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+footer div {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+footer div {
+  font-size: 32px;
+}
+
+#clear,
+#board,
+#restart {
+  grid-row-start: 2;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  color: white;
+
+}
+
+.btn {
+  background-color: seagreen;
+}
+
+#board {
+  grid-template: repeat(5, 50px) / repeat(5, 50px);
+  background: #999;
+  grid-gap: 1px;
+  padding: 1px;
+  background-color: white;
+  border-color: white;
+  color: white;
+
+}
+
+button {
+  background-color: #00bbbb;
+  border: 0 none;
+  font: inherit;
+  transition-duration: 0.3s;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+
+}
+
+#board button:focus {
+  font-size: 40px;
+  color: white;
+  outline: none;
+}
+
+#player {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1px;
+  background: #333;
+}
+
+#player div {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+#player-a,
+#player-b {
+  transition-duration: 1.2s;
+  background-color: lightblue;
+}
+

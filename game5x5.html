@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400" rel="stylesheet">
+  <link rel="stylesheet" href="style5x5.css">
+  <script type="text/javascript" src="game5x5.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    <header>Tic Tac Toe</header>
+    <div id="base">
+      <div id="clear">
+        <button class="btn" onclick="game.clear()">Clear</button>
+      </div>
+      <div id="board">
+      </div>
+      <div id="restart">
+        <button class="btn" onclick="game.restart()">Restart</button>
+      </div>
+    </div>
+    <footer>
+      <div id="score-a">3</div>
+      <div id="score-b">5</div>
+    </footer>
+    <div id="player">
+      <div id='player-a'>Player A</div>
+      <div id='player-b'>Player B</div>
+    </div>
+  </div>
+</body>
+
+</html>
