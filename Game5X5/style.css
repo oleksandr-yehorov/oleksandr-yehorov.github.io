@@ -1,0 +1,40 @@
+body {
+    text-align:center;
+    font-family: Arial;
+    background-color: white;
+}
+
+#field1{
+    margin-top: 60px;
+}
+
+button {
+   width: 50px;
+   height: 50px;
+   font-size: 25px;
+   border: 1px solid white;
+   border-radius: 10px;
+   margin:0 auto;
+   padding:13px;
+   background-color: #3a9693;
+   color: white;  
+   outline: none;  
+}
+
+#clear {
+  width: 100px;
+  height: 50px;
+  margin: 20px auto;
+  text-align: center;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 15px;
+  background-color: seagreen;
+}
+
+#winner{
+  font-size: 25px;
+  color: seagreen;
+}
