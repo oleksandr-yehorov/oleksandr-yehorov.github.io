@@ -76,10 +76,10 @@ for (d=1; d<=fieldSize; d++){
       arr[d+3*(n+1)-1].style.background = diagGrad1;
       wins=true;
       winblock();}
-   if(d%n==(winPos-n)){d+=winPos;}
+   if(d%n==(n-winPos+1)){d+=winPos-1;}
 }  
 for (d=1; d<=fieldSize; d++){
-    if(d%fieldSize==1){d+=(winPos-1);}
+    if(d%n==1){d+=(winPos-1);}
     if (field [d]==place&&field [d+(n-1)]==place&&field [d+2*(n-1)]==place&&field [d+3*(n-1)]==place/*&&field [d+4*(n-1)]==place*/){
       arr[d-1].style.background = diagGrad2;
       arr[d+(n-1)-1].style.background = diagGrad2;
